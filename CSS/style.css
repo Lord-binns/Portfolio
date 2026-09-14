@@ -598,13 +598,15 @@ footer a:hover {
         min-height: 70px;
         padding-top: 15px;
         padding-bottom: 15px;
+        gap: 12px;
     }
 
     .nav-links {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 12px 18px;
+        justify-content: center;
+        gap: 10px 14px;
+        width: 100%;
     }
 
     .nav-links a {
@@ -612,7 +614,11 @@ footer a:hover {
     }
 
     .resume-btn {
-        padding: 8px 12px;
+        display: inline-flex;
+        justify-content: center;
+        width: min(100%, 260px);
+        padding: 9px 12px;
+        margin: 0 auto;
     }
 
     .hero {
@@ -649,12 +655,40 @@ footer a:hover {
 @media (max-width: 500px) {
 
     .navbar {
-        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 20px;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+        font-size: 28px;
     }
 
     .nav-links {
         width: 100%;
         justify-content: center;
+        gap: 6px 12px;
+        margin-top: 2px;
+    }
+
+    .nav-links li {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .resume-btn {
+        width: 100%;
+        max-width: 220px;
+        margin: 2px auto 0;
     }
 
     .hero,

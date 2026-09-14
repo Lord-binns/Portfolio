@@ -59,6 +59,7 @@ header {
     list-style: none;
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 .nav-links a {
@@ -69,6 +70,23 @@ header {
 
 .nav-links a:hover {
     color: white;
+}
+
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid #2a2a2a;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+    color: #fff;
+    white-space: nowrap;
+}
+
+.resume-btn:hover {
+    border-color: #555;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 
@@ -130,7 +148,9 @@ header {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     padding: 13px 22px;
 
     background: white;
@@ -143,6 +163,21 @@ header {
     font-weight: 600;
 
     transition: 0.3s;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    line-height: 1;
+}
+
+.btn-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .btn:hover {
@@ -423,9 +458,16 @@ header {
 /* Project link */
 
 .project-content > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: white;
-
     font-size: 14px;
+}
+
+.project-content > a .btn-icon {
+    width: 12px;
+    height: 12px;
 }
 
 .project-content > a:hover {
@@ -550,8 +592,27 @@ footer a:hover {
 
 @media (max-width: 800px) {
 
+    .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 70px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
     .nav-links {
-        display: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 12px 18px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .resume-btn {
+        padding: 8px 12px;
     }
 
     .hero {
@@ -589,6 +650,11 @@ footer a:hover {
 
     .navbar {
         padding: 0 20px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
     }
 
     .hero,

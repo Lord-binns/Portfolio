@@ -28,13 +28,21 @@
                 <li><a href="#contact">Contact</a></li>
 
                 <li>
-    <a href="Resources/Olemberio_Vince_Kenneth_Resume.pdf" download class="resume-btn">
-        <span class="btn-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 3v10m0 0 4-4m-4 4-4-4M5 18.5h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        Download Resume
-    </a>
-</li>
+                    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 3v2.5M12 18.5V21M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M3 12h2.5M18.5 12H21M6.7 6.7l1.77 1.77M15.53 15.53l1.77 1.77M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </li>
+
+                <li>
+                    <a href="Resources/Olemberio_Vince_Kenneth_Resume.pdf" download class="resume-btn">
+                        <span class="btn-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 3v10m0 0 4-4m-4 4-4-4M5 18.5h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        Download Resume
+                    </a>
+                </li>
             </ul>
 
         </nav>
@@ -336,6 +344,38 @@
         </div>
 
     </footer>
+
+    <script>
+        const body = document.body;
+        const themeToggle = document.querySelector('.theme-toggle');
+
+        function applyTheme(theme) {
+            const isLight = theme === 'light';
+            body.classList.toggle('light-theme', isLight);
+            localStorage.setItem('theme', theme);
+
+            if (themeToggle) {
+                themeToggle.setAttribute(
+                    'aria-label',
+                    isLight ? 'Switch to dark mode' : 'Switch to light mode'
+                );
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            applyTheme('light');
+        } else {
+            applyTheme('dark');
+        }
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const nextTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
+                applyTheme(nextTheme);
+            });
+        }
+    </script>
 
 </body>
 </html>

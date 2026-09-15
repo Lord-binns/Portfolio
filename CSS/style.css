@@ -492,6 +492,20 @@ body.light-theme .project-card:hover {
     display: block;
 }
 
+.project-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+body.light-theme .project-placeholder {
+    background: #e8e2dc;
+    color: #81786f;
+}
+
 
 /* Dark overlay */
 

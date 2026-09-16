@@ -516,15 +516,15 @@ body.light-theme .project-card:hover {
     opacity: 0;
 }
 
-.project-image-stack img:first-child {
+.project-image-stack > :first-child {
     transform: translate(-77%, -50%) rotate(-9deg);
 }
 
-.project-image-stack img:nth-child(2) {
+.project-image-stack > :nth-child(2) {
     transform: translate(-50%, -50%) rotate(2deg);
 }
 
-.project-image-stack img:last-child {
+.project-image-stack > :nth-child(3) {
     transform: translate(-23%, -50%) rotate(10deg);
 }
 

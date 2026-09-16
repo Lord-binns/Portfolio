@@ -928,6 +928,12 @@ footer a:hover {
     line-height: 1.5;
 }
 
+.chat-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
 .chat-email {
     display: inline-flex;
     padding: 9px 14px;

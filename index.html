@@ -464,6 +464,20 @@
             <p class="chat-eyebrow">LET'S CONNECT</p>
             <h2 id="chat-title">Chat with Vince</h2>
             <p>Have a project in mind? Send me a message and let&apos;s talk.</p>
+            <div class="chatbot" aria-label="Portfolio chatbot">
+                <div class="chatbot-messages" aria-live="polite">
+                    <p class="chatbot-message chatbot-message-bot">Hi! Ask me about Vince&apos;s projects, skills, or availability.</p>
+                </div>
+                <form class="chatbot-form">
+                    <label class="sr-only" for="chatbot-input">Ask the chatbot a question</label>
+                    <input id="chatbot-input" type="text" placeholder="Ask a question..." autocomplete="off" required>
+                    <button type="submit" aria-label="Send chatbot message">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="m4 4 16 8-16 8 3-8-3-8Zm3 8h13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
             <div class="chat-actions">
                 <a class="chat-email" href="https://www.facebook.com/vince.olemberio" target="_blank" rel="noopener noreferrer">Messenger</a>
                 <a class="chat-email" href="https://wa.me/639650374328" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -538,6 +552,51 @@
                 setChatOpen(!chatPanel.classList.contains('is-open'));
             });
             chatClose.addEventListener('click', () => setChatOpen(false));
+        }
+
+        const chatbotForm = document.querySelector('.chatbot-form');
+        const chatbotInput = document.querySelector('#chatbot-input');
+        const chatbotMessages = document.querySelector('.chatbot-messages');
+
+        function getChatbotReply(question) {
+            const message = question.toLowerCase();
+
+            if (message.includes('project') || message.includes('work')) {
+                return 'Vince has built PESO Integrated System, AquaGuard, and EnviroTrack. Scroll to Featured Projects to explore them.';
+            }
+            if (message.includes('skill') || message.includes('technology') || message.includes('tech')) {
+                return 'His stack includes Laravel, PHP, JavaScript, React, Node.js, MySQL, IoT, and GIS mapping.';
+            }
+            if (message.includes('available') || message.includes('hire') || message.includes('job')) {
+                return 'For opportunities or project discussions, message Vince on Messenger or WhatsApp below.';
+            }
+            if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                return 'Hi! What would you like to know about Vince?';
+            }
+
+            return 'I can help with projects, skills, or availability. Try asking about one of those.';
+        }
+
+        if (chatbotForm && chatbotInput && chatbotMessages) {
+            chatbotForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                const question = chatbotInput.value.trim();
+                if (!question) return;
+
+                const userMessage = document.createElement('p');
+                userMessage.className = 'chatbot-message chatbot-message-user';
+                userMessage.textContent = question;
+                chatbotMessages.appendChild(userMessage);
+
+                const botMessage = document.createElement('p');
+                botMessage.className = 'chatbot-message chatbot-message-bot';
+                botMessage.textContent = getChatbotReply(question);
+                chatbotMessages.appendChild(botMessage);
+
+                chatbotInput.value = '';
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            });
         }
     </script>
 

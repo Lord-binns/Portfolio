@@ -831,6 +831,18 @@ footer div {
     gap: 20px;
 }
 
+footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.social-icon {
+    width: 15px;
+    height: 15px;
+    display: block;
+}
+
 footer a:hover {
     color: white;
 }

@@ -499,7 +499,8 @@ body.light-theme .project-card:hover {
     overflow: hidden;
 }
 
-.project-image-stack img {
+.project-image-stack img,
+.project-image-stack video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -509,6 +510,10 @@ body.light-theme .project-card:hover {
     border: 5px solid #f2f0ec;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
     transform: translate(-50%, -50%);
+}
+
+.project-image-stack > :nth-child(n + 4) {
+    opacity: 0;
 }
 
 .project-image-stack img:first-child {
@@ -523,8 +528,10 @@ body.light-theme .project-card:hover {
     transform: translate(-23%, -50%) rotate(10deg);
 }
 
-.project-image-stack img.is-active {
+.project-image-stack img.is-active,
+.project-image-stack video.is-active {
     z-index: 2;
+    opacity: 1;
     transform: translate(-50%, -50%) rotate(0deg);
 }
 

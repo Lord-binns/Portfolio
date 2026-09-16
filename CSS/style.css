@@ -887,7 +887,7 @@ footer a:hover {
     position: absolute;
     right: 0;
     bottom: 72px;
-    width: min(320px, calc(100vw - 40px));
+    width: min(420px, calc(100vw - 32px));
     padding: 24px;
     border: 1px solid #333;
     border-radius: 12px;
@@ -933,11 +933,15 @@ footer a:hover {
     font-size: 24px;
 }
 
-.chat-panel > p:not(.chat-eyebrow) {
+.chat-intro {
     margin-bottom: 18px;
     color: #999;
     font-size: 14px;
     line-height: 1.5;
+}
+
+.chat-intro.is-hidden {
+    display: none;
 }
 
 .chatbot {
@@ -948,7 +952,7 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     gap: 7px;
-    max-height: 135px;
+    max-height: 220px;
     margin-bottom: 10px;
     overflow-y: auto;
     padding-right: 4px;
@@ -1071,7 +1075,7 @@ body.light-theme .chat-toggle:hover {
 
 body.light-theme .chat-close,
 body.light-theme .chat-eyebrow,
-body.light-theme .chat-panel > p:not(.chat-eyebrow) {
+body.light-theme .chat-intro {
     color: #666;
 }
 

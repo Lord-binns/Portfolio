@@ -463,7 +463,7 @@
             <button class="chat-close" type="button" aria-label="Close chat panel">&times;</button>
             <p class="chat-eyebrow">LET'S CONNECT</p>
             <h2 id="chat-title">Chat with Vince</h2>
-            <p>Have a project in mind? Send me a message and let&apos;s talk.</p>
+            <p class="chat-intro">Have a project in mind? Send me a message and let&apos;s talk.</p>
             <div class="chatbot" aria-label="Portfolio chatbot">
                 <div class="chatbot-messages" aria-live="polite">
                     <p class="chatbot-message chatbot-message-bot">Hi! Ask me about Vince&apos;s projects, skills, or availability.</p>
@@ -577,7 +577,7 @@
             if (includesAny(['hello', 'hi ', 'hey', 'good morning', 'good afternoon'])) {
                 return 'Hi! I can tell you about Vince, his projects, skills, experience, or how to contact him.';
             }
-            if (includesAny(['everything', 'tell me about', 'who is', 'about vince', 'about you', 'introduce'])) {
+            if (includesAny(['everything', 'tell me all', 'tell me everything', 'all about', 'tell me about', 'who is', 'about vince', 'about you', 'introduce'])) {
                 return 'Vince Olemberio is a Junior Full-Stack Web Developer and Information Technology graduate from Bukidnon. He builds practical web systems and IoT solutions, with experience in Laravel, PHP, JavaScript, and environmental technology projects.';
             }
             if (includesAny(['peso', 'employment system'])) {
@@ -620,6 +620,9 @@
 
                 const question = chatbotInput.value.trim();
                 if (!question) return;
+
+                const chatIntro = document.querySelector('.chat-intro');
+                if (chatIntro) chatIntro.classList.add('is-hidden');
 
                 const userMessage = document.createElement('p');
                 userMessage.className = 'chatbot-message chatbot-message-user';

@@ -837,6 +837,143 @@ footer a:hover {
 
 
 /* =========================
+   FLOATING CHAT
+========================= */
+
+.chat-widget {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1100;
+}
+
+.chat-toggle {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #444;
+    border-radius: 50%;
+    background: #fff;
+    color: #111;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.chat-toggle:hover {
+    transform: translateY(-3px);
+    background: #e8e8e8;
+}
+
+.chat-toggle svg {
+    width: 25px;
+    height: 25px;
+}
+
+.chat-panel {
+    position: absolute;
+    right: 0;
+    bottom: 72px;
+    width: min(320px, calc(100vw - 40px));
+    padding: 24px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    background: #111;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.96);
+    transform-origin: bottom right;
+}
+
+.chat-panel.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.chat-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: 0;
+    background: transparent;
+    color: #999;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.chat-close:hover {
+    color: #fff;
+}
+
+.chat-eyebrow {
+    margin-bottom: 8px;
+    color: #888;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.chat-panel h2 {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.chat-panel > p:not(.chat-eyebrow) {
+    margin-bottom: 18px;
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.chat-email {
+    display: inline-flex;
+    padding: 9px 14px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.chat-email:hover {
+    border-color: #fff;
+}
+
+body.light-theme .chat-panel {
+    border-color: #d7d0c8;
+    background: #f7f4f1;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+}
+
+body.light-theme .chat-toggle {
+    border-color: #d1d1d1;
+    background: #121212;
+    color: #fff;
+}
+
+body.light-theme .chat-toggle:hover {
+    background: #2b2b2b;
+}
+
+body.light-theme .chat-close,
+body.light-theme .chat-eyebrow,
+body.light-theme .chat-panel > p:not(.chat-eyebrow) {
+    color: #666;
+}
+
+body.light-theme .chat-email {
+    border-color: #c8c0b8;
+    color: #111;
+}
+
+body.light-theme .chat-email:hover {
+    border-color: #111;
+}
+
+
+/* =========================
    RESPONSIVE
 ========================= */
 

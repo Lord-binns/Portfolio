@@ -217,8 +217,9 @@
                         </p>
 
                         <div class="project-tech">
-                            <span>ESP32</span>
-                            <span>Arduino</span>
+                            <span>MicroControllers</span>
+                            <span>C#</span>
+                            <span>PHP</span>
                             <span>IoT</span>
                         </div>
 
@@ -421,7 +422,7 @@
                 Feel free to get in touch.
             </p>
 
-            <a href="mailto:your@email.com" class="btn">
+            <a href="vince.olemberio2004@email.com" class="btn">
                 <span class="btn-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Zm0 0 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </span>
@@ -446,6 +447,22 @@
         </div>
 
     </footer>
+
+    <div class="chat-widget">
+        <div class="chat-panel" id="chat-panel" role="dialog" aria-labelledby="chat-title" aria-hidden="true">
+            <button class="chat-close" type="button" aria-label="Close chat panel">&times;</button>
+            <p class="chat-eyebrow">LET'S CONNECT</p>
+            <h2 id="chat-title">Chat with Vince</h2>
+            <p>Have a project in mind? Send me a message and let&apos;s talk.</p>
+            <a class="chat-email" href="https://www.facebook.com/vince.olemberio" target="_blank" rel="noopener noreferrer">Message me on Messenger</a>
+        </div>
+        <button class="chat-toggle" type="button" aria-label="Open chat with Vince" aria-expanded="false" aria-controls="chat-panel">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6a2.5 2.5 0 0 1-2.5 2.5H12l-4.5 4v-4h0A2.5 2.5 0 0 1 5 12.5v-6Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                <path d="M8.5 9.5h7M8.5 12h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
 
     <script>
         const body = document.body;
@@ -490,6 +507,24 @@
                 activeImage = (activeImage + 1) % images.length;
                 images[activeImage].classList.add('is-active');
             });
+        }
+
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatClose = document.querySelector('.chat-close');
+        const chatPanel = document.querySelector('.chat-panel');
+
+        function setChatOpen(isOpen) {
+            chatPanel.classList.toggle('is-open', isOpen);
+            chatPanel.setAttribute('aria-hidden', String(!isOpen));
+            chatToggle.setAttribute('aria-expanded', String(isOpen));
+            chatToggle.setAttribute('aria-label', isOpen ? 'Close chat with Vince' : 'Open chat with Vince');
+        }
+
+        if (chatToggle && chatClose && chatPanel) {
+            chatToggle.addEventListener('click', () => {
+                setChatOpen(!chatPanel.classList.contains('is-open'));
+            });
+            chatClose.addEventListener('click', () => setChatOpen(false));
         }
     </script>
 

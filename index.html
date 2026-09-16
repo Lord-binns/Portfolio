@@ -197,10 +197,13 @@
 
                     <div class="project-preview">
                         <div class="project-image-stack" aria-label="AquaGuard project images">
-                            <img src="https://images.unsplash.com/photo-1538300342682-cf57afb97285?auto=format&fit=crop&w=900&q=80" alt="Clear water flowing through a rocky stream">
+                            <img class="is-active" src="https://images.unsplash.com/photo-1538300342682-cf57afb97285?auto=format&fit=crop&w=900&q=80" alt="Clear water flowing through a rocky stream">
                             <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Blue water surface under daylight">
                             <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=900&q=80" alt="Water scene viewed from above">
                         </div>
+                        <button class="project-image-next" type="button" aria-label="View next AquaGuard photo">
+                            <span aria-hidden="true">&#8594;</span>
+                        </button>
                         <span class="project-number">02</span>
                         <span class="project-tag">IoT</span>
                     </div>
@@ -472,6 +475,20 @@
             themeToggle.addEventListener('click', () => {
                 const nextTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
                 applyTheme(nextTheme);
+            });
+        }
+
+        const imageStack = document.querySelector('.project-image-stack');
+        const nextImageButton = document.querySelector('.project-image-next');
+
+        if (imageStack && nextImageButton) {
+            const images = Array.from(imageStack.querySelectorAll('img'));
+            let activeImage = 0;
+
+            nextImageButton.addEventListener('click', () => {
+                images[activeImage].classList.remove('is-active');
+                activeImage = (activeImage + 1) % images.length;
+                images[activeImage].classList.add('is-active');
             });
         }
     </script>

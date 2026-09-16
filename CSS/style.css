@@ -523,6 +523,32 @@ body.light-theme .project-card:hover {
     transform: translate(-23%, -50%) rotate(10deg);
 }
 
+.project-image-stack img.is-active {
+    z-index: 2;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.project-image-next {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    background: rgba(20, 20, 20, 0.85);
+    color: #fff;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.project-image-next:hover {
+    background: #fff;
+    color: #111;
+}
+
 .project-placeholder {
     display: flex;
     align-items: center;

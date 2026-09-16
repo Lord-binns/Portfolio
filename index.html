@@ -571,22 +571,47 @@
         const chatbotMessages = document.querySelector('.chatbot-messages');
 
         function getChatbotReply(question) {
-            const message = question.toLowerCase();
+            const message = question.toLowerCase().replace(/[?!.,]/g, ' ');
+            const includesAny = (keywords) => keywords.some((keyword) => message.includes(keyword));
 
-            if (message.includes('project') || message.includes('work')) {
-                return 'Vince has built PESO Integrated System, AquaGuard, and EnviroTrack. Scroll to Featured Projects to explore them.';
+            if (includesAny(['hello', 'hi ', 'hey', 'good morning', 'good afternoon'])) {
+                return 'Hi! I can tell you about Vince, his projects, skills, experience, or how to contact him.';
             }
-            if (message.includes('skill') || message.includes('technology') || message.includes('tech')) {
-                return 'His stack includes Laravel, PHP, JavaScript, React, Node.js, MySQL, IoT, and GIS mapping.';
+            if (includesAny(['everything', 'tell me about', 'who is', 'about vince', 'about you', 'introduce'])) {
+                return 'Vince Olemberio is a Junior Full-Stack Web Developer and Information Technology graduate from Bukidnon. He builds practical web systems and IoT solutions, with experience in Laravel, PHP, JavaScript, and environmental technology projects.';
             }
-            if (message.includes('available') || message.includes('hire') || message.includes('job')) {
-                return 'For opportunities or project discussions, message Vince on Messenger or WhatsApp below.';
+            if (includesAny(['peso', 'employment system'])) {
+                return 'The PESO Integrated System is a Laravel, PHP, and MySQL web system built to streamline PESO services and office processes.';
             }
-            if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
-                return 'Hi! What would you like to know about Vince?';
+            if (includesAny(['aquaguard', 'water quality', 'water monitoring'])) {
+                return 'AquaGuard is an IoT-based water quality monitoring system using ESP32 and Arduino for real-time environmental monitoring.';
+            }
+            if (includesAny(['envirotrack', 'environmental mapping', 'gis', 'incident mapping'])) {
+                return 'EnviroTrack is a Laravel and GIS mapping system for reporting and visualizing flooding, illegal dumping, water pollution, and other environmental incidents.';
+            }
+            if (includesAny(['project', 'portfolio', 'built', 'work'])) {
+                return 'Vince has built the PESO Integrated System, AquaGuard, and EnviroTrack. Each project focuses on practical public-service, IoT, or environmental monitoring needs.';
+            }
+            if (includesAny(['skill', 'technology', 'tech stack', 'programming', 'language'])) {
+                return 'Vince works with HTML, CSS, JavaScript, React, Laravel, PHP, Node.js, Express.js, MySQL, Git, Tailwind CSS, C/C++, ESP32, Arduino, and GIS mapping.';
+            }
+            if (includesAny(['experience', 'background', 'worked'])) {
+                return 'Vince worked as a Web Developer and IT Support Intern at PESO, and as a Programmer and IoT Developer at MENRO in Manolo Fortich, Bukidnon.';
+            }
+            if (includesAny(['education', 'degree', 'graduate', 'study', 'school'])) {
+                return 'Vince is a graduate of the Bachelor of Science in Information Technology program.';
+            }
+            if (includesAny(['available', 'hire', 'job', 'freelance', 'opportunity', 'collaborate'])) {
+                return 'Vince is open to opportunities and project discussions. Send him a message through Messenger or WhatsApp below.';
+            }
+            if (includesAny(['contact', 'email', 'message', 'reach'])) {
+                return 'You can contact Vince through Messenger or WhatsApp using the buttons below this chat.';
+            }
+            if (includesAny(['resume', 'cv'])) {
+                return "You can download Vince's resume using the Download Resume button in the navigation bar.";
             }
 
-            return 'I can help with projects, skills, or availability. Try asking about one of those.';
+            return 'I can answer questions about Vince, his projects, skills, experience, education, availability, or contact details. What would you like to know?';
         }
 
         if (chatbotForm && chatbotInput && chatbotMessages) {

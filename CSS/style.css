@@ -447,7 +447,7 @@ body.light-theme .section {
     height: 38px;
     border: 1px solid #383838;
     border-radius: 6px;
-    color: #b7ff6a;
+    color: #73d13d;
     font-family: "Courier New", monospace;
     font-size: 11px;
     font-weight: 700;
@@ -460,7 +460,7 @@ body.light-theme .section {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(115deg, transparent 30%, rgba(183, 255, 106, 0.12), transparent 70%);
+    background: linear-gradient(115deg, transparent 30%, rgba(115, 209, 61, 0.12), transparent 70%);
     transform: translateX(-120%);
     transition: transform 0.6s ease;
 }
@@ -496,8 +496,8 @@ body.light-theme .section {
 }
 
 .skills-grid div:hover .skill-icon {
-    border-color: #b7ff6a;
-    color: #efffd5;
+    border-color: #73d13d;
+    color: #c8f4ae;
     transform: rotate(-6deg) scale(1.08);
 }
 

@@ -417,6 +417,9 @@ body.light-theme .section {
 }
 
 .skills-grid div {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     padding: 20px;
 
     background: #111;
@@ -425,13 +428,65 @@ body.light-theme .section {
 
     color: #aaa;
 
-    transition: 0.3s;
+    animation: skill-card-in 0.7s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+    transition: border-color 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.skills-grid div::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.1), transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.6s ease;
+}
+
+.skills-grid div:nth-child(2) { animation-delay: 0.06s; }
+.skills-grid div:nth-child(3) { animation-delay: 0.12s; }
+.skills-grid div:nth-child(4) { animation-delay: 0.18s; }
+.skills-grid div:nth-child(5) { animation-delay: 0.24s; }
+.skills-grid div:nth-child(6) { animation-delay: 0.30s; }
+.skills-grid div:nth-child(7) { animation-delay: 0.36s; }
+.skills-grid div:nth-child(8) { animation-delay: 0.42s; }
+.skills-grid div:nth-child(9) { animation-delay: 0.48s; }
+.skills-grid div:nth-child(10) { animation-delay: 0.54s; }
+.skills-grid div:nth-child(11) { animation-delay: 0.60s; }
+.skills-grid div:nth-child(12) { animation-delay: 0.66s; }
+
+@keyframes skill-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .skills-grid div:hover {
     border-color: #555;
     color: white;
     transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.skills-grid div:hover::before {
+    transform: translateX(120%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skills-grid div {
+        animation: none;
+    }
+
+    .skills-grid div::before {
+        display: none;
+    }
 }
 
 
